@@ -31,55 +31,27 @@ const App = () => {
             <div className={step >= 2 ? "active" : ""}>2</div>
             <div className={step >= 3 ? "active" : ""}>3</div>
           </div>
-          <Step step={step}>{messages[step - 1]}</Step>
-
+          <div className="message">
+            <p> Step {`${step}: ${messages[step - 1]}`}</p>
+          </div>
           <div className="buttons">
-            {/* <button
+            <button
               onClick={() => previousHandling()}
-              style={{ backgroundColor: "#7950f2", color: "#7950f2" }}
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
             >
               Previous
-            </button> */}
-            {/* <button
+            </button>
+            <button
               onClick={() => nextHandling()}
               style={{ backgroundColor: "#7950f2", color: "#fff" }}
             >
               Next
-            </button> */}
-            <Button
-              bgColor="#7950f2"
-              fontColor="#fff"
-              onClicker={previousHandling}
-            >
-              Previous
-            </Button>
-            <Button bgColor="#7950f2" fontColor="#fff" onClicker={nextHandling}>
-              Next
-            </Button>
+            </button>
           </div>
         </div>
       )}
     </>
   );
 };
-const Button = ({ bgColor, fontColor, onClicker, children }) => {
-  return (
-    <button
-      style={{ backgroundColor: bgColor, color: fontColor }}
-      onClick={onClicker}
-    >
-      {children}
-    </button>
-  );
-};
-const Step = ({ step, children }) => {
-  return (
-    <div className="message">
-      <p>
-        <h1>Step {step}: </h1>
-        {children}
-      </p>
-    </div>
-  );
-};
+
 export default App;
